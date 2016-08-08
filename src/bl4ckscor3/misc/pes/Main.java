@@ -12,6 +12,7 @@ import bl4ckscor3.misc.pes.problems.Problem5;
 import bl4ckscor3.misc.pes.problems.Problem6;
 import bl4ckscor3.misc.pes.problems.Problem7;
 import bl4ckscor3.misc.pes.problems.Problem8;
+import bl4ckscor3.misc.pes.problems.Problem9;
 
 public class Main
 {
@@ -78,5 +79,6 @@ public class Main
 		problems.add(new Problem6());
 		problems.add(new Problem7());
 		problems.add(new Problem8());
+		problems.add(new Problem9());
 	}
 }
