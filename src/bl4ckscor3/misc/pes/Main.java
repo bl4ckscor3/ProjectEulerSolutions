@@ -65,5 +65,6 @@ public class Main
 	private static void addAll(ArrayList<IProblem> problems)
 	{
 		problems.add(new Problem1());
+		problems.add(new Problem2());
 	}
 }
