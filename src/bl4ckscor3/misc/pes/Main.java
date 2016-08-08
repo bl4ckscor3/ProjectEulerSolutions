@@ -6,6 +6,7 @@ import java.util.Scanner;
 import bl4ckscor3.misc.pes.problems.IProblem;
 import bl4ckscor3.misc.pes.problems.Problem1;
 import bl4ckscor3.misc.pes.problems.Problem2;
+import bl4ckscor3.misc.pes.problems.Problem3;
 
 public class Main
 {
@@ -66,5 +67,6 @@ public class Main
 	{
 		problems.add(new Problem1());
 		problems.add(new Problem2());
+		problems.add(new Problem3());
 	}
 }
