@@ -40,28 +40,38 @@ public class Main
 				if(p.getClass().getName().split("\\.")[4].endsWith("" + n)) //check if the actual class name's ending matches the entered number
 				{
 					String yn;
+					long start;
+					long end;
 					
 					System.out.println("Running problem #" + n + " - \"" + p.name() + "\"");
 					System.out.println("");
+					start = System.currentTimeMillis();
 					p.exe(); //executing the problem
+					end = System.currentTimeMillis();
+					System.out.println("Execution time: " + convertTime(start, end));
 					System.out.println("");
 					System.out.print("Do you want to run another problem? Y/N: ");
 					yn = s.next();
-					
+
 					//check if the user wants to run another problem
 					if(yn.equalsIgnoreCase("N"))
 					{
 						run = false;
 						fault = false;
 						System.out.println("Closing program!");
+						break;
 					}
 					else if(yn.equalsIgnoreCase("Y"))
+					{
 						fault = false;
+						break;
+					}
 					else
 					{
 						System.out.println("Invalid option entered, stopping program.");
 						run = false;
 						fault = false;
+						break;
 					}
 				}
 			}
@@ -92,5 +102,38 @@ public class Main
 		problems.add(new Problem10());
 		problems.add(new Problem11());
 		problems.add(new Problem12());
+	}
+	
+	/**
+	 * Converts milliseconds to seconds and minutes, if needed
+	 * @param start The start of the problem in ms
+	 * @param end The end of the problem in ms
+	 * @return The resulting String
+	 */
+	private static String convertTime(long start, long end)
+	{
+		long elapsedTime = end - start;
+		int minutes = 0;
+		int seconds = 0;
+		
+		if(elapsedTime > 60000)
+		{
+			while(elapsedTime > 60000)
+			{
+				elapsedTime -= 60000;
+				minutes++;
+			}
+		}
+		
+		if(elapsedTime > 1000)
+		{
+			while(elapsedTime > 1000)
+			{
+				elapsedTime -= 1000;
+				seconds++;
+			}
+		}
+
+		return (minutes != 0 ? minutes + "min " : "") + (seconds != 0 ? seconds + "s " : "") + elapsedTime + "ms";
 	}
 }
