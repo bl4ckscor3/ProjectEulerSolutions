@@ -27,26 +27,27 @@ public class Main
 		
 		addAll(problems);
 		
-		while(run)
+		while(run) //while the user wants to execute a problem
 		{
 			boolean fault = true;
 			
 			System.out.print("Enter the numer of the problem you want to run: ");
 			n = s.nextInt();
 			
-			for(IProblem p : problems)
+			for(IProblem p : problems) //looping through the problems
 			{
-				if(p.getClass().getName().split("\\.")[4].endsWith("" + n))
+				if(p.getClass().getName().split("\\.")[4].endsWith("" + n)) //check if the actual class name's ending matches the entered number
 				{
 					String yn;
 					
 					System.out.println("Running problem #" + n + " - \"" + p.name() + "\"");
 					System.out.println("");
-					p.exe();
+					p.exe(); //executing the problem
 					System.out.println("");
 					System.out.print("Do you want to run another problem? Y/N: ");
 					yn = s.next();
 					
+					//check if the user wants to run another problem
 					if(yn.equalsIgnoreCase("N"))
 					{
 						run = false;
@@ -64,6 +65,7 @@ public class Main
 				}
 			}
 			
+			//the user entered a number that doesn't exist
 			if(fault)
 				System.out.println("Invalid number entered.");
 		}
@@ -71,6 +73,10 @@ public class Main
 		s.close();
 	}
 	
+	/**
+	 * Adds all problems to the list
+	 * @param problems The list to add the problems to
+	 */
 	private static void addAll(ArrayList<IProblem> problems)
 	{
 		problems.add(new Problem1());

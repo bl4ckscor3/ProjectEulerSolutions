@@ -9,6 +9,7 @@ public class Problem2 implements IProblem
 		int result = 0;
 		boolean run = true;
 		
+		//run it as long as the fibonacci number is below four million
 		while(run)
 		{
 			int fib = fib(i++);
@@ -19,6 +20,7 @@ public class Problem2 implements IProblem
 				continue;
 			}
 			
+			//if the fibonacci number is even, add it to the result
 			if(fib % 2 == 0)
 				result += fib;
 		}
@@ -26,6 +28,11 @@ public class Problem2 implements IProblem
 		System.out.println("The sum of all even fibonacci numbers up until 4000000 is " + result);
 	}
 
+	/**
+	 * Calculates the nth fibonacc number
+	 * @param n The fibonacci number index to calculate
+	 * @return The nth fibonacci number
+	 */
 	private int fib(int n)
 	{
 		if(n <= 0)
