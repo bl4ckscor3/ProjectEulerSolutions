@@ -22,13 +22,13 @@ public class Problem17 implements IProblem
 		int amount = 0;
 
 		if(i < 20)
-			amount += words[i].length();
+			amount += words[i].length(); //the first 19 indices (starting by 1, because 0 is "and") are the numbers just like they are here
 		else if(i % 10 == 0 && i / 100 < 1)
-			amount += words[i / 10 - 2 + 20].length();
+			amount += words[i / 10 - 2 + 20].length(); //indices 21 to 27 are all the evenly divisible by 10 numbers (20, 30, ..., 100)
 		else if(i < 100)
 		{
-			amount += getLetterCount(Math.floorDiv(i, 10) * 10);
-			amount += getLetterCount(i % 10);
+			amount += getLetterCount(Math.floorDiv(i, 10) * 10); //get the digit at the 2nd to last place and multiply by 10 to get the actual number
+			amount += getLetterCount(i % 10); //get the last digit
 		}
 		else if(i < 1000)
 		{
@@ -37,10 +37,10 @@ public class Problem17 implements IProblem
 			if(i % 100 != 0)
 			{
 				amount += words[0].length(); //and
-				amount += getLetterCount(i % 100);
+				amount += getLetterCount(i % 100); //get the digit at the 3rd to last place and multiply by 100 to get the actual number
 			}
 		}
-		else //one thousand
+		else //one + thousand
 			amount += words[1].length() + words[words.length - 1].length();
 
 		return amount;
