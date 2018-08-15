@@ -20,7 +20,7 @@ public class Problem3 implements IProblem
 				l /= i;
 			}
 		}
-		
+
 		System.out.println("The largest prime factor of 600851475143 is " + n);
 	}
 

@@ -17,7 +17,7 @@ public class Problem8 implements IProblem
 			numbers[i] = Long.parseLong("" + series[i]);
 		}
 
-		//loop through all numbers ending ad numbers.length - 13 because 13 numbers get multiplied at a time
+		//loop through all numbers ending at numbers.length - 13 because 13 numbers get multiplied at a time
 		for(int i = 0; i < numbers.length - 13; i++)
 		{
 			//multiply thirteen adjacent numbers together

@@ -31,7 +31,7 @@ public class Problem11 implements IProblem
 				{20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16},
 				{20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54},
 				{1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48}};
-		
+
 		//loop through the rows
 		for(int i = 0; i < grid.length; i++)
 		{
@@ -42,15 +42,15 @@ public class Problem11 implements IProblem
 				down = -1;
 				diagonalDown = -1;
 				diagonalUp = -1;
-				
+
 				//if the third entry to the right of the current entry exists
 				if(j + 3 < grid[i].length)
 					right = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3]; //multiply all those together
-				
+
 				//if the third entry to the bottom of the current entry exists
 				if(i + 3 < grid.length)
 					down = grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * grid[i + 3][j]; //multiply all those together
-				
+
 				//if the third entry to the right AND bottom of the current entry exists
 				if(j + 3 < grid[i].length && i + 3 < grid.length)
 					diagonalDown = grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3]; //multiply all those together
@@ -58,23 +58,23 @@ public class Problem11 implements IProblem
 				//if the third entry to the right AND top of the current entry exists
 				if(j + 3 < grid[i].length && i - 3 >= 0)
 					diagonalUp = grid[i][j] * grid[i - 1][j + 1] * grid[i - 2][j + 2] * grid[i - 3][j + 3]; //multiply all those together
-				
+
 				//checking if any of the calculated numbers is bigger than the value in result
 				if(right > result)
 					result = right;
-				
+
 				if(down > result)
 					result = down;
 
 				if(diagonalDown > result)
 					result = diagonalDown;
-				
+
 				if(diagonalUp > result)
 					result = diagonalUp;
 			}
 		}
-		
-		System.out.println("The greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid is " + result);
+
+		System.out.println("The greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20x20 grid is " + result);
 	}
 
 	@Override

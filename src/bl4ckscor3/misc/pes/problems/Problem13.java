@@ -110,12 +110,12 @@ public class Problem13 implements IProblem
 				"53503534226472524250874054075591789781264330331690"
 		};
 		BigInteger result = BigInteger.ZERO;
-		
+
 		for(String s : bigInts)
 		{
 			result = result.add(new BigInteger(s));
 		}
-		
+
 		System.out.println("The first 10 digits of the sum of the given 100 50-digit numbers is " + result.toString().substring(0, 10));
 	}
 
